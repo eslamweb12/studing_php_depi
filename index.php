@@ -96,7 +96,6 @@ $arrayColumn=[
         "salary"=>10000,
     ],
 ];
-
 $res=array_column($arrayColumn,"salary");
 print_r($res);
 
@@ -268,6 +267,13 @@ echo rand(0,999999);
 
 include_once "helpers/validation.php";
 
+include "helpers/connectionDb.php";
+include "models/userModel.php";
+$result=getAllusers();
+
+
+// prints and showing the result in a table
+
 
 
 
@@ -277,6 +283,37 @@ include_once "helpers/validation.php";
 
 
 ?>
+<html>
+    <head>
+        <title>home</title>
+
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>username</th>
+                    <th>email</th>
+                    <th>password</th>
+                    <th>phone</th>
+                </tr>
+            </thead>
+       
+                <?php foreach($result as $res){?>
+                <tr>
+                    <td><?php echo $res['username'] ?></td>
+                    <td><?php echo $res['email'] ?></td>
+                    <td><?php echo $res['password'] ?></td>
+                    <td><?php echo $res['phone'] ?></td>
+                </tr>
+                <?php }?>
+                
+            </tbody>
+        </table>
+        
+
+    </body>
+</html>
 
 
 
@@ -285,7 +322,7 @@ include_once "helpers/validation.php";
 
 
 
-<html>
+<!-- <html>
 
 <head>
     <title>home</title>
@@ -307,7 +344,7 @@ include_once "helpers/validation.php";
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>  
 </body>
 
-</html>
+</html> -->
 
 
 
